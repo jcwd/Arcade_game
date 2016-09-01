@@ -10,7 +10,7 @@ In this project I was provided with visual assets and a game loop engine; using 
 
 ##Goal of project
 
-*Goal 1*
+###Goal 1
   *Update the _app.js_ file to implement the _Player_ and _Enemy_ classes doing the following:
     -The Enemy function, which initiates the Enemy by:
         +Loading the image by setting this.sprite to the appropriate image in the image folder (already provided)
