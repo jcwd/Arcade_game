@@ -32,8 +32,22 @@ var Player = function (player) { // this should set up the Player class
 //the player method (first just a test to print)
 Player.prototype.hellotest = function() {
     console.log("hello, I am a test for player " + this.player);
+};// this is not a required function, just something I added to ensure the class structure was working correctly.
+
+//the required update method
+Player.prototype.update = function() {
+
 };
 
+// the required render method
+Player.prototype.render = function() {
+
+};
+
+// the required handleinput method
+Player.prototype.handleInput = function () {
+
+};
 // creating a new instance of the player object
 
 var player = new Player('dave');
