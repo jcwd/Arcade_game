@@ -26,7 +26,7 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 var Player = function (player) { // this should set up the Player class
     this.player = player; // keyword this allows me to work on the properties of the player within the class.
-    console.log ("Player instantiated")
+    console.log ("Player instantiated");
 
 };
 //the player method (first just a test to print)
@@ -61,8 +61,39 @@ player.hellotest();
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-var allEnemies = [];
+var AllEnemies = function (allEnemies) {
+    this.allEnemies = allEnemies;
+    console.log("allEnemies instantiated");
+};
 
+//the player method (first just a test to print)
+AllEnemies.prototype.enemytest = function() {
+    console.log("Grr.. I am enemy " + this.allEnemies[x]);
+};// this is not a required function, just something I added to ensure the class structure was working correctly.
+
+//An AllEnemies imageload method (Required)
+AllEnemies.prototype.imageLoad = function() {
+
+};
+
+//An AllEnemies initialLocation method (Required)
+AllEnemies.prototype.initialLocation = function() {
+
+};
+
+//An AllEnemies speed method (Required)
+AllEnemies.prototype.speed = function() {
+
+};
+
+//The required Allenemies update Method (Required)
+
+AllEnemies.prototype.update = function() {
+// implement location, collision with player
+};
+
+
+var allEnemies = [];
 
 
 // This listens for key presses and sends the keys to your
