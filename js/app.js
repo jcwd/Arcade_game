@@ -24,24 +24,23 @@ Enemy.prototype.render = function() {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
-var Player = function (player) { // this should set up the Player class
-    this.player = player; // keyword this allows me to work on the properties of the player within the class.
+var Player = function (playerStartX,playerStartY) { // this should set up the Player class with params for initial position
+    this.x = playerStartX;
+    this.y = playerStartY;
+    this.sprite = 'images/char-princess-girl.png';// keyword this allows me to work on the properties of the player within the class.
     console.log ("Player instantiated");
 
 };
-//the player method (first just a test to print)
-Player.prototype.hellotest = function() {
-    console.log("hello, I am a test for player " + this.player);
-};// this is not a required function, just something I added to ensure the class structure was working correctly.
 
 //the required update method
-Player.prototype.update = function() {
+Player.prototype.update = function(dt) {
 
 };
 
 // the required render method
 Player.prototype.render = function() {
-
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    // load the player image
 };
 
 // the required handleinput method
@@ -50,19 +49,14 @@ Player.prototype.handleInput = function () {
 };
 // creating a new instance of the player object
 
-var player = new Player('dave');
+var player = new Player(205, 400);
 
-// to show the first name properties of the objects
-console.log('player is ' + player.player); // logs "player is dave"
-
-// calling the hellotest function
-player.hellotest();
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-var AllEnemies = function (allEnemies) {
-    this.allEnemies = allEnemies;
+var AllEnemies = function (enemy) {
+    this.enemy = enemy;
     console.log("allEnemies instantiated");
 };
 
