@@ -2,22 +2,21 @@
 var Enemy = function(enemyStartX,enemyStartY,sprite) {
         // Variables applied to each of our instances go here,
         // we've provided one for you to get started
+        // below sets the enemies initial location as per goal1
         this.x = enemyStartX;
         this.y = enemyStartY;
         // The image/sprite for our enemies, this uses
         // a helper we've provided to easily load images
         this.sprite = 'images/enemy-bug.png';
         this.speed = Speed (1000, 1750);
-        console.log("allEnemies instantiated");
 };
 
-
+// Setting the eneny speed as per goal!
 var Speed = function getRandomInt(min,max) {
     return Math.floor(Math.random() * (max - min + 10));
 };
 
 
-// End of my old code
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
@@ -55,27 +54,43 @@ Player.prototype.render = function() {
 };
 
 // the required handleinput method
-Player.prototype.handleInput = function () {
+Player.prototype.handleInput = function (direction) {
+    if (direction === "right"){
+console.log("right");
+    }
+    else if (direction === "left"){
+console.log("left");
+    }
+    else if (direction === "up"){
+console.log("up");
+    }
+    else if (direction === "down"){
+console.log("down");
+    }
+    else player = new Player (xpos, ypos)
 
 };
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
-var topEnemy = new Enemy(-25,60,1)
-var middleEnemy = new Enemy(-25,145,2)
-var bottomEnemy = new Enemy(-25,225,3)
+var topEnemy = new Enemy(-100,60,1)
+var middleEnemy = new Enemy(-100,145,2)
+var bottomEnemy = new Enemy(-100,225,3)
 var allEnemies = [];
 
 allEnemies.push(topEnemy, middleEnemy, bottomEnemy);
+console.log("allEnemies instantiated");
 
 // Place the player object in a variable called player
-var player = new Player(205, 400);
+var xpos = 205;
+var ypos = 400;
+var player = new Player(xpos, ypos);
 console.log ("Player instantiated");
 
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
-document.addEventListener('keyup', function(e) {
+document.addEventListener('keyup', function(direction) {
     var allowedKeys = {
         37: 'left',
         38: 'up',
@@ -83,5 +98,5 @@ document.addEventListener('keyup', function(e) {
         40: 'down'
     };
 
-    player.handleInput(allowedKeys[e.keyCode]);
+    player.handleInput(allowedKeys[direction.keyCode]);
 });
