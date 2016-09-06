@@ -1,22 +1,34 @@
 // Enemies our player must avoid
-var Enemy = function() {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
-
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
-    this.sprite = 'images/enemy-bug.png';
+var Enemy = function(enemyStartX,enemyStartY,sprite) {
+        // Variables applied to each of our instances go here,
+        // we've provided one for you to get started
+        this.x = enemyStartX;
+        this.y = enemyStartY;
+        // The image/sprite for our enemies, this uses
+        // a helper we've provided to easily load images
+        this.sprite = 'images/enemy-bug.png';
+        this.speed = Speed (1000, 1750);
+        console.log("allEnemies instantiated");
 };
+
+
+var Speed = function getRandomInt(min,max) {
+    return Math.floor(Math.random() * (max - min + 10));
+};
+
+
+// End of my old code
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
+    this.x += this.speed * dt;
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
 };
 
-// Draw the enemy on the screen, required method for game
+// Draw the enemy on the screen, required method for game (with initial location as x,y co-ords)
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
@@ -28,7 +40,6 @@ var Player = function (playerStartX,playerStartY) { // this should set up the Pl
     this.x = playerStartX;
     this.y = playerStartY;
     this.sprite = 'images/char-princess-girl.png';// keyword this allows me to work on the properties of the player within the class.
-    console.log ("Player instantiated");
 
 };
 
@@ -47,47 +58,19 @@ Player.prototype.render = function() {
 Player.prototype.handleInput = function () {
 
 };
-// creating a new instance of the player object
-
-var player = new Player(205, 400);
-
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
-var AllEnemies = function (enemy) {
-    this.enemy = enemy;
-    console.log("allEnemies instantiated");
-};
-
-//the player method (first just a test to print)
-AllEnemies.prototype.enemytest = function() {
-    console.log("Grr.. I am enemy " + this.allEnemies[x]);
-};// this is not a required function, just something I added to ensure the class structure was working correctly.
-
-//An AllEnemies imageload method (Required)
-AllEnemies.prototype.imageLoad = function() {
-
-};
-
-//An AllEnemies initialLocation method (Required)
-AllEnemies.prototype.initialLocation = function() {
-
-};
-
-//An AllEnemies speed method (Required)
-AllEnemies.prototype.speed = function() {
-
-};
-
-//The required Allenemies update Method (Required)
-
-AllEnemies.prototype.update = function() {
-// implement location, collision with player
-};
-
-
+var topEnemy = new Enemy(-25,60,1)
+var middleEnemy = new Enemy(-25,145,2)
+var bottomEnemy = new Enemy(-25,225,3)
 var allEnemies = [];
+
+allEnemies.push(topEnemy, middleEnemy, bottomEnemy);
+
+// Place the player object in a variable called player
+var player = new Player(205, 400);
+console.log ("Player instantiated");
 
 
 // This listens for key presses and sends the keys to your
