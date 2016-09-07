@@ -103,7 +103,7 @@ document.addEventListener('keyup', function(direction) {
         39: 'right',
         40: 'down'
     }
-
+player.handleInput(allowedKeys[direction.keyCode]);
     }
 );
-player.handleInput(allowedKeys[direction.keyCode]);
+
