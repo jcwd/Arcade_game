@@ -74,8 +74,9 @@ Player.prototype.handleInput = function (direction) {
         default:
         this.x = this.x;
         this.y = this.y;
-
+    }
 };
+
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
@@ -101,9 +102,8 @@ document.addEventListener('keyup', function(direction) {
         38: 'up',
         39: 'right',
         40: 'down'
-    };
+    }
 
-
-    player.handleInput(allowedKeys[direction.keyCode]);
-})
-}
+    }
+);
+player.handleInput(allowedKeys[direction.keyCode]);
