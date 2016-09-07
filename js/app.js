@@ -1,3 +1,5 @@
+var xpos = 205;
+var ypos = 400;
 // Enemies our player must avoid
 var Enemy = function(enemyStartX,enemyStartY,sprite) {
         // Variables applied to each of our instances go here,
@@ -11,7 +13,7 @@ var Enemy = function(enemyStartX,enemyStartY,sprite) {
         this.speed = Speed (1000, 1750);
 };
 
-// Setting the eneny speed as per goal!
+// Setting the enemy speed as per goal!
 var Speed = function getRandomInt(min,max) {
     return Math.floor(Math.random() * (max - min + 10));
 };
@@ -45,6 +47,7 @@ var Player = function (playerStartX,playerStartY) { // this should set up the Pl
 //the required update method
 Player.prototype.update = function(dt) {
 
+
 };
 
 // the required render method
@@ -55,19 +58,22 @@ Player.prototype.render = function() {
 
 // the required handleinput method
 Player.prototype.handleInput = function (direction) {
-    if (direction === "right"){
-console.log("right");
-    }
-    else if (direction === "left"){
-console.log("left");
-    }
-    else if (direction === "up"){
-console.log("up");
-    }
-    else if (direction === "down"){
-console.log("down");
-    }
-    else player = new Player (xpos, ypos)
+    switch(direction){
+        case 'right' :
+            this.x = this.x + 100;
+            break;
+        case 'left' :
+        this.x = this.x - 100;
+            break;
+        case 'up' :
+        this.y = this.y - 85;
+            break;
+        case 'down' :
+        this.y = this.y + 85;
+            break;
+        default:
+        this.x = this.x;
+        this.y = this.y;
 
 };
 
@@ -82,9 +88,8 @@ allEnemies.push(topEnemy, middleEnemy, bottomEnemy);
 console.log("allEnemies instantiated");
 
 // Place the player object in a variable called player
-var xpos = 205;
-var ypos = 400;
-var player = new Player(xpos, ypos);
+
+var player = new Player(205,400);
 console.log ("Player instantiated");
 
 
@@ -98,5 +103,7 @@ document.addEventListener('keyup', function(direction) {
         40: 'down'
     };
 
+
     player.handleInput(allowedKeys[direction.keyCode]);
-});
+})
+}
