@@ -1,5 +1,4 @@
-var xpos = 205;
-var ypos = 400;
+
 // Enemies our player must avoid
 var Enemy = function(enemyStartX,enemyStartY,sprite) {
         // Variables applied to each of our instances go here,
@@ -10,7 +9,7 @@ var Enemy = function(enemyStartX,enemyStartY,sprite) {
         // The image/sprite for our enemies, this uses
         // a helper we've provided to easily load images
         this.sprite = 'images/enemy-bug.png';
-        this.speed = Speed (1000, 1750);
+        this.speed = Speed(100,400);
 };
 
 // Setting the enemy speed as per goal!
@@ -24,6 +23,10 @@ var Speed = function getRandomInt(min,max) {
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
     this.x += this.speed * dt;
+    if (this.x >=505) {
+        this.speed = Speed(100,876);
+        this.x = -100;
+    }
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
