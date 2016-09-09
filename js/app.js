@@ -27,6 +27,12 @@ Enemy.prototype.update = function(dt) {
         this.speed = Speed(100,876);
         this.x = -100;
     }
+    if (this.x <= player.x -50 &&
+        this.x >= player.x +50 &&
+        this.y <= player.y -50 &&
+        this.y >= player.y -50)  {
+        console.log("Ouch");
+    }
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
@@ -59,20 +65,28 @@ Player.prototype.render = function() {
     // load the player image
 };
 
+// the below is for collision detection
+
+
 // the required handleinput method
+// the switch used refrences the eventlistener below and moves the player the correct amount of Pixels to appear to move to the next square accordingly. the default is no keyrelease and the x and y positions remain unchanged.
 Player.prototype.handleInput = function (direction) {
     switch(direction){
         case 'right' :
             this.x = this.x + 100;
+                console.log(this.x, this.y)
             break;
         case 'left' :
         this.x = this.x - 100;
+                console.log(this.x, this.y)
             break;
         case 'up' :
         this.y = this.y - 85;
+                console.log(this.x, this.y)
             break;
         case 'down' :
         this.y = this.y + 85;
+                console.log(this.x, this.y)
             break;
         default:
         this.x = this.x;
@@ -87,6 +101,7 @@ var topEnemy = new Enemy(-100,60,1)
 var middleEnemy = new Enemy(-100,145,2)
 var bottomEnemy = new Enemy(-100,225,3)
 var allEnemies = [];
+
 
 allEnemies.push(topEnemy, middleEnemy, bottomEnemy);
 console.log("allEnemies instantiated");
