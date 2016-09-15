@@ -27,10 +27,10 @@ Enemy.prototype.update = function(dt) {
         this.speed = Speed(100,876);
         this.x = -100;
     }
-    if (this.x <= player.x -50 &&
-        this.x >= player.x +50 &&
-        this.y <= player.y -50 &&
-        this.y >= player.y -50)  {
+    if (player.x <= this.x +40 &&
+        player.x >= this.x -40 &&
+        player.y <= this.y+40 &&
+        player.y >= this.y -40) {
         console.log("Ouch");
     }
     // You should multiply any movement by the dt parameter
