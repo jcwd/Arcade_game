@@ -73,20 +73,40 @@ Player.prototype.render = function() {
 Player.prototype.handleInput = function (direction) {
     switch(direction){
         case 'right' :
+            if (this.x >= 405) {
+                this.x;
+            }
+            else {
             this.x = this.x + 100;
                 console.log(this.x, this.y)
+            }
             break;
         case 'left' :
+            if (this.x <= 5) {
+                this.x;
+            }
+            else{
         this.x = this.x - 100;
                 console.log(this.x, this.y)
+            }
             break;
         case 'up' :
+         if (this.y <= -25) {
+                this.y;
+            }
+            else {
         this.y = this.y - 85;
                 console.log(this.x, this.y)
+            }
             break;
         case 'down' :
+        if (this.y >= 400) {
+            this.y;
+        }
+        else {
         this.y = this.y + 85;
                 console.log(this.x, this.y)
+        }
             break;
         default:
         this.x = this.x;
