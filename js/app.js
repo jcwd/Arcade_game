@@ -32,6 +32,7 @@ Enemy.prototype.update = function(dt) {
         player.y <= this.y+40 &&
         player.y >= this.y -40) {
         console.log("Ouch");
+        player.reset();
     }
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
@@ -56,7 +57,10 @@ var Player = function (playerStartX,playerStartY) { // this should set up the Pl
 //the required update method
 Player.prototype.update = function(dt) {
 
-
+    if (player.y <= -25) {
+        console.log("You made it");
+        player.reset();
+    }
 };
 
 // the required render method
@@ -115,6 +119,9 @@ Player.prototype.handleInput = function (direction) {
 };
 
 
+
+
+
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 var topEnemy = new Enemy(-100,60,1)
@@ -131,6 +138,10 @@ console.log("allEnemies instantiated");
 var player = new Player(205,400);
 console.log ("Player instantiated");
 
+Player.prototype.reset = function() {
+    this.x = 205;
+    this.y = 400;
+};
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
