@@ -10,7 +10,7 @@ In this project I was provided with visual assets and a game loop engine; using 
 
 ##Goal of project
 
-###Goal 1
+###Goal 1 - Completed 16/09/2016
 
   * Update the _app.js_ file to implement the _Player_ and _Enemy_ classes doing the following:
   * The Enemy function, which initiates the Enemy by:
