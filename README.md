@@ -36,7 +36,7 @@ In this project I was provided with visual assets and a game loop engine; using 
       * The handleInput method, which should receive user input, allowedKeys (the key which was pressed) and move the player according to that input. In particular: - Done
         * Left key should move the player to the left, right key to the right, up should move the player up and down should move the player down. - Done
       * Recall that the player cannot move off screen (so you will need to check for that and handle appropriately). - Done
-      * If the player reaches the water the game should be reset by moving the player back to the initial location (you can write a separate reset Player method to handle that).
+      * If the player reaches the water the game should be reset by moving the player back to the initial location (you can write a separate reset Player method to handle that). - Done
   *You can add your own Player methods as needed.
 
 ###known issues
