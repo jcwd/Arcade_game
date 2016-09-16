@@ -73,12 +73,12 @@ Player.prototype.render = function() {
 Player.prototype.handleInput = function (direction) {
     switch(direction){
         case 'right' :
-            if (this.x >= 405) {
-                this.x;
+            if (this.x >= 405) { // the if statement here sets a limit to player movement if at far right
+                this.x; // then x remains at its value no matter if key pressed
             }
             else {
-            this.x = this.x + 100;
-                console.log(this.x, this.y)
+            this.x = this.x + 100; // else you are free to move 100 px to the right
+                console.log(this.x, this.y) // used this to verify the x and y location
             }
             break;
         case 'left' :
