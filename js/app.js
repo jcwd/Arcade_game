@@ -57,10 +57,13 @@ var Player = function (playerStartX,playerStartY) { // this should set up the Pl
 //the required update method
 Player.prototype.update = function(dt) {
 
-    if (player.y <= -25) {
-        console.log("You made it");
-        player.reset();
-    }
+        if (this.y <= -25) {
+            timeout = setTimeout(function() {
+            console.log("You made it");
+            player.reset();
+            }, 1000);
+        }
+        clearTimeout(setTimeout);
 };
 
 // the required render method
@@ -128,6 +131,7 @@ var topEnemy = new Enemy(-100,60,1)
 var middleEnemy = new Enemy(-100,145,2)
 var bottomEnemy = new Enemy(-100,225,3)
 var allEnemies = [];
+var timeout;
 
 
 allEnemies.push(topEnemy, middleEnemy, bottomEnemy);
@@ -139,9 +143,12 @@ var player = new Player(205,400);
 console.log ("Player instantiated");
 
 Player.prototype.reset = function() {
-    this.x = 205;
-    this.y = 400;
+
+            this.x = 205;
+            this.y = 400;
+
 };
+
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
