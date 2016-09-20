@@ -1,4 +1,5 @@
-
+var lives = 5;
+var score = 0;
 // Enemies our player must avoid
 var Enemy = function(enemyStartX,enemyStartY,sprite) {
         // Variables applied to each of our instances go here,
@@ -18,7 +19,6 @@ var Speed = function getRandomInt(min,max) {
 };
 
 
-
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
@@ -32,6 +32,9 @@ Enemy.prototype.update = function(dt) {
         player.y <= this.y+40 &&
         player.y >= this.y -40) {
         console.log("Ouch");
+        lives = lives -1;
+        $("#lifeLeft").text(lives);
+        console.log(lives);
         player.reset();
     }
     // You should multiply any movement by the dt parameter
@@ -51,19 +54,21 @@ var Player = function (playerStartX,playerStartY) { // this should set up the Pl
     this.x = playerStartX;
     this.y = playerStartY;
     this.sprite = 'images/char-princess-girl.png';// keyword this allows me to work on the properties of the player within the class.
-
 };
 
 //the required update method
 Player.prototype.update = function(dt) {
 
         if (this.y <= -25) {
-            timeout = setTimeout(function() {
+            // timeout = setTimeout(function() {
             console.log("You made it");
             player.reset();
-            }, 1000);
+            // }, 1000);
+                    score = score +1;
+            $("#score").text(score);
+            console.log(score);
         }
-        clearTimeout(setTimeout);
+        // clearTimeout(setTimeout);
 };
 
 // the required render method
@@ -141,6 +146,7 @@ console.log("allEnemies instantiated");
 
 var player = new Player(205,400);
 console.log ("Player instantiated");
+
 
 Player.prototype.reset = function() {
 
