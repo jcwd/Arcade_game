@@ -1,5 +1,13 @@
 var lives = 5;
 var score = 0;
+var soundID = "splash";
+
+function loadsound () {
+    createjs.Sound.registerSound("assets/splash.wav", soundID);
+};
+function playSound () {
+    createjs.Sound.play(soundID);
+};
 // Enemies our player must avoid
 var Enemy = function(enemyStartX,enemyStartY,sprite) {
         // Variables applied to each of our instances go here,
@@ -64,7 +72,8 @@ Player.prototype.update = function(dt) {
             console.log("You made it");
             player.reset();
             // }, 1000);
-                    score = score +1;
+            score = score +1;
+            playSound();
             $("#score").text(score);
             console.log(score);
         }
