@@ -50,6 +50,6 @@ Help your player across the road avoiding the enemy bugs along the way. Reach th
 
 ###known issues
 
-####here is will add all known issues I have for this project.
+####here is where we will add all known issues I have for this project.
 
-  * Trace of player left on canvas at win ( see issues log for details)
+  * Trace of player left on canvas at win ( see issues log for details) - issue closed 23rd Sept
