@@ -1,3 +1,28 @@
 body {
     text-align: center;
 }
+h1 {
+    color: #ff6868;
+    font-family: 'Parisienne', cursive;
+    font-size: 4em;
+}
+#lifeLeft {
+    color: rgba(249, 249, 249, 0.61);
+    font-family: 'Parisienne', cursive;
+    font-size: 6em;
+}
+#currentLives {
+    color: rgba(95, 100, 183, 0.69);
+    font-family: 'Parisienne', cursive;
+    font-size: 6em;
+}
+#currentScore {
+    color: rgba(249, 249, 249, 0.61);
+    font-family: 'Parisienne', cursive;
+    font-size: 6em;
+}
+#score {
+    color: rgba(95, 100, 183, 0.69);
+    font-family: 'Parisienne', cursive;
+    font-size: 6em;
+}
