@@ -9,7 +9,7 @@ In this project I was provided with visual assets and a game loop engine; using 
   * If you reach the water without going out of bounds and not colliding with an enemy bug, you win!
 
 ### Objective
-Help your player across the road avoiding the enemy bugs along the way. Reach the water without being touched to win!
+Help your player across the road avoiding the enemy bugs along the way. Reach the water without being touched to win! Win 5 times and get a musical surprise!!!!
 
 ##Documentation
 
