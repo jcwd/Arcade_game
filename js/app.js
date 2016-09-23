@@ -1,13 +1,38 @@
 var lives = 5;
 var score = 0;
-var soundID = "splash";
+var waterSound = "splash";
+var jumpSound = "boing";
+var cantMove = "thud";
+var caught = "snap";
+var music = "music";
 
-function loadsound () {
-    createjs.Sound.registerSound("assets/splash.wav", soundID);
+
+function loadSounds () {
+    createjs.Sound.registerSound("sounds/splash.wav", waterSound);
+    createjs.Sound.registerSound("sounds/jump.mp3", jumpSound);
+    createjs.Sound.registerSound("sounds/thud.mp3", cantMove);
+    createjs.Sound.registerSound("sounds/caught.mp3", caught);
+    createjs.Sound.registerSound("sounds/cat_mouse.mp3", music);
 };
-function playSound () {
-    createjs.Sound.play(soundID);
+function playSplash () {
+    createjs.Sound.play(waterSound);
 };
+function playJump () {
+    createjs.Sound.play(jumpSound);
+}
+function playThud () {
+    createjs.Sound.play(cantMove);
+}
+function playSnap () {
+    createjs.Sound.play(caught);
+}
+function playMusic () {
+    createjs.Sound.play(music);
+}
+
+loadSounds();
+
+
 // Enemies our player must avoid
 var Enemy = function(enemyStartX,enemyStartY,sprite) {
         // Variables applied to each of our instances go here,
@@ -40,6 +65,7 @@ Enemy.prototype.update = function(dt) {
         player.y <= this.y+40 &&
         player.y >= this.y -40) {
         console.log("Ouch");
+        playSnap();
         lives = lives -1;
         $("#lifeLeft").text(lives);
         console.log(lives);
@@ -73,8 +99,11 @@ Player.prototype.update = function(dt) {
             player.reset();
             // }, 1000);
             score = score +1;
-            playSound();
+            playSplash();
             $("#score").text(score);
+            if (score === 5) {
+                playMusic();
+            };
             console.log(score);
         }
         // clearTimeout(setTimeout);
@@ -83,6 +112,7 @@ Player.prototype.update = function(dt) {
 // the required render method
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+
     // load the player image
 };
 
@@ -95,38 +125,46 @@ Player.prototype.handleInput = function (direction) {
     switch(direction){
         case 'right' :
             if (this.x >= 405) { // the if statement here sets a limit to player movement if at far right
-                this.x; // then x remains at its value no matter if key pressed
+                this.x;
+                playThud(); // then x remains at its value no matter if key pressed
             }
             else {
             this.x = this.x + 100; // else you are free to move 100 px to the right
-                console.log(this.x, this.y) // used this to verify the x and y location
+                console.log(this.x, this.y)
+                playJump(); // used this to verify the x and y location
             }
             break;
         case 'left' :
             if (this.x <= 5) {
                 this.x;
+                playThud();
             }
             else{
         this.x = this.x - 100;
                 console.log(this.x, this.y)
+                playJump();
             }
             break;
         case 'up' :
          if (this.y <= -25) {
                 this.y;
+                playThud();
             }
             else {
         this.y = this.y - 85;
                 console.log(this.x, this.y)
+                playJump();
             }
             break;
         case 'down' :
         if (this.y >= 400) {
             this.y;
+            playThud();
         }
         else {
         this.y = this.y + 85;
                 console.log(this.x, this.y)
+                playJump();
         }
             break;
         default:
@@ -161,6 +199,7 @@ Player.prototype.reset = function() {
 
             this.x = 205;
             this.y = 400;
+
 
 };
 
