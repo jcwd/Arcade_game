@@ -49,7 +49,7 @@ var Enemy = function(enemyStartX, enemyStartY, sprite) {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
-    this.speed = Speed(100, 400);
+    this.speed = Math.floor(Math.random() * (400 - 100 + 10));
 };
 
 // Setting the enemy speed as per goal!
@@ -102,7 +102,7 @@ Player.prototype.update = function(dt) {
     if (this.y <= -25) {
         // timeout = setTimeout(function() {
         console.log("You made it");
-        player.reset();
+        this.reset();
         // }, 1000);
         score = score + 1;
         playSplash();
